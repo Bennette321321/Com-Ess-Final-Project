@@ -1,11 +1,12 @@
 import { BACKEND_URL } from "./config.js";
 
 const sortByScoreThenName = (data1, data2) => {
-  const scoreComparison = data2.score - data1.score;
-  // Descending order of score
+  const scoreComparison = data2.score - data1.score; // Descending order of score
     
     if (scoreComparison === 0) {
-        return data1.name - data2.age; // Ascending order of name
+      const name1 = data1.name.toLowerCase();
+      const name2 = data2.name.toLowerCase();
+      return name1.localeCompare(name2); // Ascending order of name
     }
 
     return scoreComparison;
@@ -13,8 +14,7 @@ const sortByScoreThenName = (data1, data2) => {
 
 export async function getPlayers() {
     const players = await fetch(`${BACKEND_URL}/leaderboard`).then((r) => r.json());
-    const keyArray = Object.keys(players);
-    if (keyArray.length > 1) {
+    if (players.length > 1) {
       players.sort(sortByScoreThenName);
     }
     return players;

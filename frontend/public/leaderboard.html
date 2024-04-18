@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+</head>
+<body>
+    <h1>Sample Leaderboard</h1>
+    <table id="table">
+        <thead id="table-head">
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+        <tfoot id="table-foot">
+            <tr id="newrow-form">
+              <td><input id="name-to-add" type="text" /></td>
+              <td><input id="score-to-add" type="number" /></td>
+              <td><button id="add-newrow">เพิ่ม</button></td>
+            </tr>
+          </tfoot>
+    </table>
+    <script type="module" src="scripts/leaderboard.js"></script>
+</body>
+</html>
