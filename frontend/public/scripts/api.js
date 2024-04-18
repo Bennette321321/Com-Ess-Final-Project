@@ -29,3 +29,9 @@ export async function createPlayer(player) {
       body: JSON.stringify(player),
     });
 }
+
+export async function deletePlayer(id) {
+  await fetch(`${BACKEND_URL}/leaderboard/${id}`, {
+    method: "DELETE",
+  });
+}

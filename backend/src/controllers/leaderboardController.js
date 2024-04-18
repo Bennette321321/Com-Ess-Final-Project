@@ -15,7 +15,14 @@ export const createPlayer = async (req, res) => {
     }
   };
   
-  export const getPlayers = async (req, res) => {
-    const players = await Player.find();
-    res.status(200).json(players);
-  };
+export const getPlayers = async (req, res) => {
+  const players = await Player.find();
+  res.status(200).json(players);
+};
+
+export const deletePlayer = async (req, res) => {
+  await Player.deleteOne({
+    _id: req.params.id,
+  });
+  res.status(200).send("OK");
+}

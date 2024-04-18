@@ -3,11 +3,11 @@ import { getPlayers, createPlayer } from "./api.js";
 document.addEventListener("DOMContentLoaded", () => {
 
   fetchAndDrawTable();
-  
-  const addPlayerButton = document.getElementById("add-newrow");
-  addPlayerButton.addEventListener("click", () => {
-    handleCreatePlayer();
-  });
+
+  const backToLobbyButton = document.getElementById("back-btn");
+  backToLobbyButton.addEventListener("click", () => {
+    window.open("index.html", "_self");
+  }) 
 })
 
 function drawLeaderboardTable(players) {
@@ -20,12 +20,12 @@ function drawLeaderboardTable(players) {
   }
 }
 
-export async function fetchAndDrawTable() {
+async function fetchAndDrawTable() {
   const players = await getPlayers();
   drawLeaderboardTable(players);
 }
 
-export async function handleCreatePlayer() {
+async function handleCreatePlayer() {
   const nameToAdd = document.getElementById("name-to-add");
   const scoreToAdd = document.getElementById("score-to-add");
 
