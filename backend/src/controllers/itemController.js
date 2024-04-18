@@ -16,7 +16,24 @@ export const createItem = async (req, res) => {
 };
 
 export const getItems = async (req, res) => {
-  const items = await Item.find();
+  const filterName = req.query.name;
+  const filterMinPrice = req.query.minPrice;
+  const filterMaxPrice = req.query.maxPrice;
+
+  const query = {};
+  if (filterName) {
+    query.name = filterName;
+  }
+  if (filterMinPrice) {
+    if (!query.price) query.price = {};
+    query.price.$gte = filterMinPrice;
+  }
+  if (filterMaxPrice) {
+    if (!query.price) query.price = {};
+    query.price["$lte"] = filterMaxPrice;
+  }
+
+  const items = await Item.find(query);
 
   res.status(200).json(items);
 };
@@ -24,12 +41,13 @@ export const getItems = async (req, res) => {
 export const deleteItem = async (req, res) => {
   // TODO2: implement this function
   // HINT: you can serve the internet and find what method to use for deleting item.
-  res.status(501).send("Unimplemented");
-};
+  await Item.deleteOne({
+    _id: req.params.id
+  });
+  res.status(200).send("Delete Successfully");
+}
 
-export const filterItems = async (req, res) => {
-  // TODO3: implement this filter function
-  // WARNING: you are not allowed to query all items and do something to filter it afterward.
-  // Otherwise, you will be punished by -0.5 scores for this part
-  res.status(501).send("Unimplemented");
-};
+export async function filterItems(filterName, lowerPrice, upperPrice) {
+    // Assuming items is an array of items you want to filter
+    res.status(501)
+}
