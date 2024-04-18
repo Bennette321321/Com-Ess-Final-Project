@@ -1,0 +1,41 @@
+body {
+    background-image:url('src/popcat1.png');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    place-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#pop {
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid #AAA;
+    background: white;
+    width: 130px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#confirm-select-animal {
+    border-radius: 8px;
+    border: 1px solid #AAA;
+    background: white;
+    width: 70px;
+    height: 30px;
+    font-size: 15px;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#select-animal {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 50px;
+    padding: 5px 5px;
+    border-radius: 8px;
+}
