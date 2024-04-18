@@ -1,3 +1,19 @@
+/* Styles for lobby page */
+.lobby-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+
+
+
+/* Styles for game page */
+.game-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
 body {
     background-image:url('src/popcat1.png');
     background-attachment: fixed;

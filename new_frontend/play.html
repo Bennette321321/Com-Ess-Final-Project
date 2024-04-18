@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>popAnimal by Group9</title>
+        <link rel="icon" type="image/x-icon" href="src/cat.png">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="game-container">
+            <h1>Popcat Game</h1>
+            <h1 style="font-size: 250%;">Pop Animal</h1>
+                <h2 id="cnt">0</h2>
+                <button id="pop" onclick="addCnt()">click me!</button></br>
+                <select id="select-animal">
+                    <option value="cat">cat</option>
+                    <option value="dog">dog</option>
+                    <option value="pig">pig</option>
+                </select>
+                <button id="confirm-select-animal" onclick="change_animal()">select</button>
+            <button id="save-btn">Save Score</button>
+            <div id="leaderboard"></div>
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,3 +1,42 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('login-form');
+    const playBtn = document.getElementById('play-btn');
+    const saveBtn = document.getElementById('save-btn');
+    const leaderboardDiv = document.getElementById('leaderboard');
+
+    function change_page(){
+        window.location.href = "play.html";
+      } 
+
+    // Function to handle form submission
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const code = document.getElementById('code').value;
+        const username = document.getElementById('username').value;
+        // Perform validation and submit the form
+        // Redirect to game page with user id
+        change_page()
+    });
+
+    // Function to handle save button click
+    saveBtn.addEventListener('click', function() {
+        // Get user id and score
+        // Perform validation
+        // Send data to server to save
+    });
+
+    // Function to fetch leaderboard data
+    function fetchLeaderboard() {
+        // Fetch leaderboard data from server
+        // Update leaderboardDiv with fetched data
+    }
+
+    // Initial fetch of leaderboard data
+    fetchLeaderboard();
+});
+
+// ===========================================================
+
 var cnt = 0
 var current_animal = "cat"
 var bg_cat = ["url('src/popcat1.png')","url('src/popcat2.png')"]

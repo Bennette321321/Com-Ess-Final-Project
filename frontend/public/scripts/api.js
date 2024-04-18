@@ -24,19 +24,38 @@ export async function deleteItem(id, item) {
 
 export async function filterItems(filterName, lowerPrice, upperPrice) {
   // TODO3: implement this function
+  console.log(filterName, lowerPrice, upperPrice);
+  let filter = "";
+  if (filterName === "ทั้งหมด") {
+    filter = `?minPrice=${lowerPrice}&maxPrice=${upperPrice}`;
+  } else {
+    filter = `?name=${filterName}&minPrice=${lowerPrice}&maxPrice=${upperPrice}`;
+  }
+  const items = await fetch(`${BACKEND_URL}/items${filter}`).then((r) =>
+    r.json()
+  );
+  return items;
   // You may need to understand handleFilterItem() function in ./table.js before implementing this function.
-  return /* return the filted items */;
 }
 
 export async function getMembers() {
-  // TODO4: implement this function
-  return /* return all members */;
+  const items = await fetch(`${BACKEND_URL}/members`).then((r) => r.json());
+
+  return items;
 }
 
 export async function createMember(member) {
-  // TODO4: implement this function
+  await fetch(`${BACKEND_URL}/members`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(member),
+  });
 }
 
 export async function deleteMember(id, item) {
-  // TODO4: implement this function
+  await fetch(`${BACKEND_URL}/members/${id}`, {
+    method: "DELETE",
+  });
 }
