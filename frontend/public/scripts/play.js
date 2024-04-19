@@ -1,12 +1,8 @@
-import { createPlayer, getPlayers, updatePlayer} from "./api.js";
+import { getPlayers, updatePlayer} from "./api.js";
 
 var canAddCnt = true;
 
-const urlParams = new URLSearchParams(window.location.search);
-var name = urlParams.get('name-to-play');
-if (name === null) {
-    name = sessionStorage.getItem("currentName");
-}
+var name = sessionStorage.getItem("currentName");
 
 document.addEventListener("DOMContentLoaded", () => {
     loadName(name)
@@ -26,7 +22,6 @@ function loadName(name) {
     const nameZone = document.getElementById("name-used");
     nameZone.innerText = `User: ${name}`;
     nameZone.addEventListener("click", disableAdd);
-    sessionStorage.setItem("currentName", name);
 }
 
 async function loadScore(name) {

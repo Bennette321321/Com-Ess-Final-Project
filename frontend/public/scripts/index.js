@@ -18,6 +18,7 @@ async function handleCreatePlayer() {
     if (!playerNames.includes(name.value)) {
       await createPlayer(name.value, 0);
     }
+    sessionStorage.setItem("currentName", name.value);
     window.open("play.html", "_self");
   }
 }

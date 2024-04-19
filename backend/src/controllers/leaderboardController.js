@@ -20,13 +20,6 @@ export const getPlayers = async (req, res) => {
   res.status(200).json(players);
 };
 
-export const deletePlayer = async (req, res) => {
-  await Player.deleteOne({
-    name: req.params.name,
-  });
-  res.status(200).send("OK");
-}
-
 export const updatePlayer = async (req, res) => {
   try {
     await Player.updateOne({"name": req.body.name}, {$set: {"score": req.body.score}});

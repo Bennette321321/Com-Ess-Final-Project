@@ -39,9 +39,3 @@ export async function updatePlayer(name, score) {
     body: JSON.stringify({"name": name, "score": score}),
   });
 }
-
-export async function deletePlayer(name) {
-  await fetch(`${BACKEND_URL}/leaderboard/${name}`, {
-    method: "DELETE",
-  });
-}
