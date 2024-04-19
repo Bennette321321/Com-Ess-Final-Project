@@ -1,9 +1,46 @@
+import { getPlayers } from "./api.js";
+
 var canAddCnt = true;
-var totalScore = 0;
+
+const urlParams = new URLSearchParams(window.location.search);
+const name = urlParams.get('name-to-play');
+console.log(name)
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("cnt").innerText = totalScore
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name-to-play');
+    loadName(name)
+    loadScore(name);
+    document.addEventListener("click", addCnt);
+    const disableZone = document.getElementsByClassName("disableAdd");
+    for (let element of disableZone) {
+        element.addEventListener("click", disableAdd);
+    }
+    const changeAnimal = document.getElementById("confirm-select-animal-btn");
+    changeAnimal.addEventListener("click", change_animal);
+    const saveButton = document.getElementById("save-btn");
+    saveButton.addEventListener("click", saveScore);
+    const leaderboardButton = document.getElementById("leaderboard-btn");
+    leaderboardButton.addEventListener("click", showLeaderboard);
 });
+
+function loadName(name) {
+    const nameZone = document.getElementById("name-used");
+    nameZone.innerText = `User: ${name}`;
+    nameZone.addEventListener("click", disableAdd);
+}
+
+async function loadScore(name) {
+    let score = 0;
+    const players = await getPlayers();
+    for (let player of players) {
+        if (player.name == name) {
+            score = player.score
+            break;
+        }
+    }
+    document.getElementById("cnt").innerText = score
+}
 
 function addCnt() {
     if (canAddCnt) {
@@ -11,7 +48,6 @@ function addCnt() {
         var current_animal = document.getElementById("select-animal-btn").value;
         var audio;
         cnt += 1
-        totalScore += 1;
         document.getElementById("cnt").innerText = cnt;
         switch(current_animal) {
             case "cat" :
@@ -88,6 +124,7 @@ function change_animal() {
             break;
     }
 }
+
 function saveScore() {
     disableAdd()
 }

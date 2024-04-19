@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome!!</title>
+    <link rel="icon" type="image/x-icon" href="src/cat.png">
 </head>
 <body>
     <div class="lobby-container">
         <h1>Welcome to Popcat</h1>
-        <input type="text" id="username" placeholder="Enter Username" required>
-        <button type="submit" id="play-btn">Play</button>
+        <form action="play.html" method="get">
+            <input type="text" name="name-to-play" id="username" placeholder="Enter Username" required>
+            <button type="submit" id="play-btn">Play</button>
+        </form>
     </div>
     <script type="module" src="scripts/index.js"></script>
 </body>

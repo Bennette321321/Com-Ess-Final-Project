@@ -11,12 +11,15 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function drawLeaderboardTable(players) {
+  let rank = 0;
   const table = document.getElementById("table-body");
   table.innerHTML = "";
   for (const player of players) {
-      const row = table.insertRow();
-      row.insertCell().innerText = player.name;
-      row.insertCell().innerText = player.score;
+    rank++;
+    const row = table.insertRow();
+    row.insertCell().innerText = rank;
+    row.insertCell().innerText = player.name;
+    row.insertCell().innerText = player.score;
   }
 }
 

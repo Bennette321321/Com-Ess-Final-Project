@@ -4,19 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard</title>
+    <link rel="icon" type="image/x-icon" href="src/cat.png">
+    <link rel="stylesheet" href="leaderboard.css">
 </head>
 <body>
-    <h1>Sample Leaderboard</h1>
-    <table id="table">
-        <thead id="table-head">
-            <tr>
-                <th>Name</th>
-                <th>Score</th>
-            </tr>
-        </thead>
-        <tbody id="table-body"></tbody>
-    </table>
-    <button type="submit" id="back-btn">Back to lobby</button>
+    <main class="table" id="leaderboard">
+        <section class="table__header">
+            <h1>Leader Score Board</h1>
+            <div class="input-group">
+                <input type="search" placeholder="Search Name">
+            </div>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body"></tbody>
+            </table>
+        </section>
+        <button type="submit" id="back-btn">Back to Play</button>
+    </main>
     <script type="module" src="scripts/leaderboard.js"></script>
 </body>
 </html>
