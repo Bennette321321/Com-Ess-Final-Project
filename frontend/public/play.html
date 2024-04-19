@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PopAnimal by Group9</title>
+        <link rel="icon" type="image/x-icon" href="src/cat.png">
+        <link rel="stylesheet" href="play.css">
+    </head>
+    <body onclick="addCnt()">
+        <h1 style="font-size: 250%;" onclick="disableAdd()">Pop Animal</h1>
+        <h2 id="cnt" onclick="disableAdd()">0</h2>
+        <select id="select-animal-btn" onclick="disableAdd()">
+            <option value="cat">Cat</option>
+            <option value="dog">Dog</option>
+            <option value="pig">Pig</option>
+            <option value="whale">Whale</option>
+            <option value="sheep">Sheep</option>
+            <option value="elephant">Elephant</option>
+            <option value="wolf">Wolf</option>
+        </select>
+        <button id="confirm-select-animal-btn" onclick="change_animal()">Select</button>
+        <br>
+        <button id="save-btn" onclick="saveScore()">Save Score</button>
+        </br>
+        <button id="leaderboard-btn" onclick="showLeaderboard()">Show Leaderboard</button>
+    </body>
+    <script src="scripts/play.js"></script>
+</html>

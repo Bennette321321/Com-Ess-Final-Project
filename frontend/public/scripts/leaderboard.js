@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fetchAndDrawTable();
 
-  const backToLobbyButton = document.getElementById("back-btn");
-  backToLobbyButton.addEventListener("click", () => {
-    window.open("index.html", "_self");
+  const backToPlayButton = document.getElementById("back-btn");
+  backToPlayButton.addEventListener("click", () => {
+    window.open("play.html", "_self");
   }) 
 })
 

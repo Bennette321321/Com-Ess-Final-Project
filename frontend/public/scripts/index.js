@@ -35,7 +35,7 @@ async function handleCreatePlayer() {
   }
   await createPlayer(player);
   nameToAdd.value = "";
-  window.open("leaderboard.html", "_self");
+  window.open("play.html", "_self");
 }
 
 async function handleDeletePlayer(id) {
