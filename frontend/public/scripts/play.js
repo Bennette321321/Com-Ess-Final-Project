@@ -1,25 +1,23 @@
-import { getPlayers } from "./api.js";
+import { createPlayer, getPlayers, updatePlayer} from "./api.js";
 
 var canAddCnt = true;
 
 const urlParams = new URLSearchParams(window.location.search);
-const name = urlParams.get('name-to-play');
-console.log(name)
+var name = urlParams.get('name-to-play');
+if (name === null) {
+    name = sessionStorage.getItem("currentName");
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const name = urlParams.get('name-to-play');
     loadName(name)
     loadScore(name);
-    document.addEventListener("click", addCnt);
+    document.addEventListener("click", addCnt)
     const disableZone = document.getElementsByClassName("disableAdd");
     for (let element of disableZone) {
         element.addEventListener("click", disableAdd);
     }
     const changeAnimal = document.getElementById("confirm-select-animal-btn");
     changeAnimal.addEventListener("click", change_animal);
-    const saveButton = document.getElementById("save-btn");
-    saveButton.addEventListener("click", saveScore);
     const leaderboardButton = document.getElementById("leaderboard-btn");
     leaderboardButton.addEventListener("click", showLeaderboard);
 });
@@ -28,6 +26,7 @@ function loadName(name) {
     const nameZone = document.getElementById("name-used");
     nameZone.innerText = `User: ${name}`;
     nameZone.addEventListener("click", disableAdd);
+    sessionStorage.setItem("currentName", name);
 }
 
 async function loadScore(name) {
@@ -48,6 +47,7 @@ function addCnt() {
         var current_animal = document.getElementById("select-animal-btn").value;
         var audio;
         cnt += 1
+        saveScore(name, cnt)
         document.getElementById("cnt").innerText = cnt;
         switch(current_animal) {
             case "cat" :
@@ -125,8 +125,9 @@ function change_animal() {
     }
 }
 
-function saveScore() {
+async function saveScore(name, score) {
     disableAdd()
+    await updatePlayer(name, score);
 }
 
 function showLeaderboard() {

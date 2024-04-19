@@ -20,18 +20,28 @@ export async function getPlayers() {
     return players;
 }
 
-export async function createPlayer(player) {
+export async function createPlayer(name, score) {
     await fetch(`${BACKEND_URL}/leaderboard`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(player),
+      body: JSON.stringify({"name": name, "score": score}),
     });
 }
 
-export async function deletePlayer(id) {
-  await fetch(`${BACKEND_URL}/leaderboard/${id}`, {
+export async function updatePlayer(name, score) {
+  await fetch(`${BACKEND_URL}/leaderboard/${name}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({"name": name, "score": score}),
+  });
+}
+
+export async function deletePlayer(name) {
+  await fetch(`${BACKEND_URL}/leaderboard/${name}`, {
     method: "DELETE",
   });
 }

@@ -22,7 +22,17 @@ export const getPlayers = async (req, res) => {
 
 export const deletePlayer = async (req, res) => {
   await Player.deleteOne({
-    _id: req.params.id,
+    name: req.params.name,
   });
   res.status(200).send("OK");
+}
+
+export const updatePlayer = async (req, res) => {
+  try {
+    await Player.updateOne({"name": req.body.name}, {$set: {"score": req.body.score}});
+  } catch (err) {
+    const newPlayer = new Player(req.body);
+    await newPlayer.save();
+  }
+  res.status(200).json({ message: "OK" });
 }

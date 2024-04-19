@@ -1,4 +1,4 @@
-import { getPlayers, createPlayer } from "./api.js";
+import { getPlayers } from "./api.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -26,20 +26,4 @@ function drawLeaderboardTable(players) {
 async function fetchAndDrawTable() {
   const players = await getPlayers();
   drawLeaderboardTable(players);
-}
-
-async function handleCreatePlayer() {
-  const nameToAdd = document.getElementById("name-to-add");
-  const scoreToAdd = document.getElementById("score-to-add");
-
-  const player = {
-    name: nameToAdd.value,
-    score: scoreToAdd.value,
-  };
-
-  await createPlayer(player);
-  await fetchAndDrawTable();
-
-  nameToAdd.value = "";
-  scoreToAdd.value = "";
 }
