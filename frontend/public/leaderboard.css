@@ -301,9 +301,9 @@ tbody td.active {
 
 #back-btn{
     border-radius: 10px;
-    margin: 1rem;
+    margin: 0.5rem;
     padding: 0.5rem;
-    font-size: 1.25rem;
+    font-size: 1rem;
     background-color: #2980b9;
     color: white;
     cursor: pointer;

@@ -33,7 +33,7 @@ async function loadScore(name) {
             break;
         }
     }
-    document.getElementById("cnt").innerText = score
+    document.getElementById("cnt").innerText = score;
 }
 
 function addCnt() {
