@@ -277,7 +277,7 @@ tbody td.active {
 }
 
 #leaderboard {
-    width: 40vw;
+    width: 100vw;
 }
 
 #leaderboard .table__header h1 {

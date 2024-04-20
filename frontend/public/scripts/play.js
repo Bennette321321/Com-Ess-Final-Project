@@ -39,7 +39,7 @@ async function loadScore(name) {
 function addCnt() {
     if (canAddCnt) {
         var cnt = Number(document.getElementById("cnt").innerText);
-        var current_animal = document.getElementById("select-animal-btn").value;
+        var current_animal = document.getElementById("select-animal-option").value;
         var audio;
         cnt += 1
         saveScore(name, cnt)
@@ -94,7 +94,7 @@ function disableAdd() {
 
 function change_animal() {
     disableAdd()
-    var current_animal = document.getElementById("select-animal-btn").value;
+    var current_animal = document.getElementById("select-animal-option").value;
     switch(current_animal) {
         case "cat" :
             document.body.style.backgroundImage = "url('../src/popcat1.png')";
