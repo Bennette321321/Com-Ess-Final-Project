@@ -6,7 +6,9 @@ body {
     background-position: center;
     text-align: center;
     place-items: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 button {
@@ -16,7 +18,9 @@ button {
     border: 1px solid #000000;
     background: white;
     text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 #confirm-select-animal-btn {
@@ -31,6 +35,9 @@ button {
     padding: 5px 5px;
     border-radius: 8px;
     text-align: center;
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 #save-btn {
